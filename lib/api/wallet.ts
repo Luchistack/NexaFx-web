@@ -7,10 +7,7 @@ export interface WalletBalance {
 
 export async function getBalances(): Promise<WalletBalance[]> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // The correct backend route is `/users/wallet/balances` (not `/wallets/balances`).
-  // This route is protected and should be called directly (no proxy) —
-  // other authenticated user endpoints use `useProxy: false` as well.
-  const data = await apiClient<any>("/users/wallet/balances", {
+  const data = await apiClient<any>("/wallets/balances", {
     method: "GET",
     useProxy: false,
   });
